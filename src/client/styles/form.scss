@@ -1,0 +1,38 @@
+form {
+  padding: 50px 60px;
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 10px rgba(84, 84, 84, 0.173);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+input {
+  padding-right: 10px;
+  padding-left: 4px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  width: 100%;
+  line-height: 16px;
+  margin: 10px 0;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid navy;
+}
+
+button {
+  background-color: navy;
+  color: white;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  border: none;
+  transition: all .5s ease-in;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 128, 0.549);
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>FEND</title>
+</head>
+
+<body>
+
+  <header>
+    <p>Your Incite Anywhere Any Time</p>
+  </header>
+  <main>
+
+    <section>
+      <p class="title">Traveler Incite</p>
+      <form onsubmit="return Client.handleSubmit(event)">
+        <input id="city" type="text" name="input" value="" placeholder="Please enter your destination" required />
+        <button type="submit" name=""> Lookup </button>
+      </form>
+    </section>
+
+    <section id="info">
+      <p id="cityHolder"></p>
+      <img width="400" id="destinationImageHolder" />
+      <div class="degree">
+        <p id="highestDegreeHolder"></p>
+        <p id="lowestDegreeHolder"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Created By Abdulrahman</p>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+  </script>
+
+</body>
+
+</html>
