@@ -2,14 +2,16 @@ const express = require('express');
 const axios = require('axios');
 const { z } = require('zod');
 const cors = require('cors');
-const {validateCity} = require('./validator')
+const { validateCity } = require('./validator')
 
 require('dotenv').config();
 
+const port = 3000;
 const app = express();
 app.use(express.static('dist'));
 app.use(express.json());
 app.use(cors());
+
 
 
 app.get('/location', async (req, res) => {
@@ -18,7 +20,7 @@ app.get('/location', async (req, res) => {
   if (!validated.success) {
     return res.status(400).json(validated.error.issues);
   }
-    const { data } = await axios.get(`http://api.geonames.org/searchJSON?q=${validated.data.city}&maxRows=1&username=${process.env.GEOCODES_NAME}`);
+  const { data } = await axios.get(`http://api.geonames.org/searchJSON?q=${validated.data.city}&maxRows=1&username=${process.env.GEOCODES_NAME}`);
 
 
   const { lng, lat } = data.geonames[0];
@@ -61,5 +63,4 @@ app.get('/image', async (req, res) => {
 
 });
 
-
-app.listen(3000, () => console.log('server is running!'));
+app.listen(port, () => console.log(`server is running on port ${port}`));
