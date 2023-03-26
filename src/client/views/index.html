@@ -17,6 +17,10 @@
       <p class="title">Traveler Incite</p>
       <form onsubmit="return Client.handleSubmit(event)">
         <input id="city" type="text" name="input" value="" placeholder="Please enter your destination" required />
+        <h6>Start Date</h6>
+        <input id="start_date" type="date" name="start_date" value="" required />
+        <h6>End Date</h6>
+        <input id="end_date" type="date" name="start_end" value="" required />
         <button type="submit" name=""> Lookup </button>
       </form>
     </section>
@@ -27,6 +31,7 @@
       <div class="degree">
         <p id="highestDegreeHolder"></p>
         <p id="lowestDegreeHolder"></p>
+        <p id="tripDurationHolder"></p>
       </div>
     </section>
 

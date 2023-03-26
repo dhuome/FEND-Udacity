@@ -1,12 +1,18 @@
 import axios from 'axios';
 import { updateUI } from './updateUI';
+import dayjs from 'dayjs';
 
 export async function handleSubmit(event) {
 	event.preventDefault();
 	console.log('first')
 	let city = document.getElementById('city').value;
-	const {destination, image, app_max_temp, app_min_temp} = await getData(city);
-	updateUI(destination,image,app_max_temp,app_min_temp);
+	let startDate = document.getElementById('start_date').value;
+	let endDate = document.getElementById('end_date').value;
+
+	const diff = dayjs(endDate).diff(dayjs(startDate),'d');
+
+	const { destination, image, app_max_temp, app_min_temp } = await getData(city);
+	updateUI(destination, image, app_max_temp, app_min_temp, diff);
 }
 
 export async function getData(city) {
@@ -18,5 +24,5 @@ export async function getData(city) {
 	const destination = weather.city_name + ', ' + weather.country_code;
 	const image = images.hits[0].largeImageURL;
 
-	return {destination, image, app_max_temp, app_min_temp}
+	return { destination, image, app_max_temp, app_min_temp }
 }
