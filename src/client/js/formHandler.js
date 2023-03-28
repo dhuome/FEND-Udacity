@@ -2,9 +2,10 @@ import axios from 'axios';
 import { updateUI } from './updateUI';
 import dayjs from 'dayjs';
 
+
+// the form handler handle user inputs and send the data  to the api to get the results then update the UI
 export async function handleSubmit(event) {
 	event.preventDefault();
-	console.log('first')
 	let city = document.getElementById('city').value;
 	let startDate = document.getElementById('start_date').value;
 	let endDate = document.getElementById('end_date').value;
